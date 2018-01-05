@@ -30,7 +30,7 @@ import zipfile
 from django.conf import settings
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from wsgiref.util import FileWrapper
 from django.shortcuts import redirect
 from django.utils.translation import ugettext as _
@@ -378,9 +378,9 @@ def index(request):
     return redirect(reverse('about:index'))
   else:
     if is_hue_4:
-      return redirect('desktop.views.hue')
+      return redirect('desktop_views_hue')
     elif USE_NEW_EDITOR.get():
-      return redirect('desktop.views.home2')
+      return redirect('desktop_views_home2')
     else:
       return home(request)
 
