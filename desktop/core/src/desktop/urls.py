@@ -85,7 +85,7 @@ dynamic_patterns += [
   url(r'^logs$', desktop_views.log_view),
   url(r'^desktop/log_analytics$', desktop_views.log_analytics),
   url(r'^desktop/log_js_error$', desktop_views.log_js_error),
-  url(r'^desktop/dump_config$', desktop_views.dump_config),
+  url(r'^desktop/dump_config$', desktop_views.dump_config, name="desktop.views.dump_config"),
   url(r'^desktop/download_logs$', desktop_views.download_log_view),
   url(r'^desktop/get_debug_level', desktop_views.get_debug_level),
   url(r'^desktop/set_all_debug', desktop_views.set_all_debug),
@@ -155,7 +155,7 @@ dynamic_patterns += [
   url(r'^desktop/api2/doc/share/?$', desktop_api2.share_document),
 
   url(r'^desktop/api2/get_config/?$', desktop_api2.get_config),
-  url(r'^desktop/api2/user_preferences/(?P<key>\w+)?$', desktop_api2.user_preferences),
+  url(r'^desktop/api2/user_preferences/(?P<key>\w+)?$', desktop_api2.user_preferences, name="desktop.api2.user_preferences"),
 
   url(r'^desktop/api2/doc/export/?$', desktop_api2.export_documents),
   url(r'^desktop/api2/doc/import/?$', desktop_api2.import_documents),

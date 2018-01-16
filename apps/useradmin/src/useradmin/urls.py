@@ -26,7 +26,7 @@ groupname_re = get_groupname_re_rule()
 urlpatterns = [
   url(r'^$', useradmin_views.list_users, name="useradmin.views.list_users"),
   url(r'^users/?$', useradmin_views.list_users, name="useradmin.views.list_users"),
-  url(r'^groups/?$', useradmin_views.list_groups),
+  url(r'^groups/?$', useradmin_views.list_groups, name="useradmin.views.list_groups"),
   url(r'^permissions/?$', useradmin_views.list_permissions),
   url(r'^configurations/?$', useradmin_views.list_configurations),
   url(r'^users/edit/(?P<username>%s)$' % (username_re,), useradmin_views.edit_user, name="useradmin.views.edit_user"),
