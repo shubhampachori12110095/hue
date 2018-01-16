@@ -24,7 +24,7 @@ urlpatterns = [
   url(r'^$', filebrowser_views.index, name='index'),
 
   # Catch-all for viewing a file (display) or a directory (listdir)
-  url(r'^view=(?P<path>.*)$', filebrowser_views.view, name='view'),
+  url(r'^view=(?P<path>.*)$', filebrowser_views.view, name='filebrowser.views.view'),
 
   url(r'^listdir=(?P<path>.*)$', filebrowser_views.listdir, name='listdir'),
   url(r'^display=(?P<path>.*)$', filebrowser_views.display, name='display'),

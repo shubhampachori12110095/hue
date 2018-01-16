@@ -127,7 +127,7 @@ dynamic_patterns += [
   url(r'^boohoo$', desktop_views.unsupported, name='desktop_views_unsupported'),
 
   # Top level web page!
-  url(r'^$', desktop_views.index),
+  url(r'^$', desktop_views.index, name="desktop_views.index"),
 ]
 
 dynamic_patterns += [

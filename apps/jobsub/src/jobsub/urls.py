@@ -28,7 +28,7 @@ urlpatterns = [
   # Actions: get, save, clone, delete, submit, new.
   url(r'^designs$', jobsub_views.list_designs),
   url(r'^designs/(?P<design_id>\d+)$', jobsub_views.get_design),
-  url(r'^designs/(?P<node_type>\w+)/new$', jobsub_views.new_design),
+  url(r'^designs/(?P<node_type>\w+)/new$', jobsub_views.new_design, name="jobsub.views.new_design"),
   url(r'^designs/(?P<design_id>\d+)/save$', jobsub_views.save_design),
   url(r'^designs/(?P<design_id>\d+)/clone$', jobsub_views.clone_design),
   url(r'^designs/(?P<design_id>\d+)/delete$', jobsub_views.delete_design),
