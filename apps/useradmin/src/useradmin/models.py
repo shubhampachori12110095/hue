@@ -166,7 +166,7 @@ def create_profile_for_user(user):
   p = UserProfile()
   p.user = user
   p.last_activity = dtz.now()
-  p.home_directory = "/user/%s" % p.user.username
+  p.home_directory = "/user/%s" % user.username
   try:
     p.save()
     return p
