@@ -160,7 +160,7 @@ def test_popup_injection():
 
 def test_reverse_with_get():
   # Basic view
-  assert_equal("/", reverse_with_get("desktop.views.index"))
+  assert_equal("/", reverse_with_get("desktop_views.index"))
   # Arguments for the view
   assert_equal("/desktop/api2/user_preferences/foo", reverse_with_get("desktop.api2.user_preferences", kwargs=dict(key="foo")))
   # Arguments for the view as well as GET parameters
@@ -170,9 +170,9 @@ def test_reverse_with_get():
   assert_equal("/desktop/api2/user_preferences/foo?a=1&b=2",
     reverse_with_get("desktop.api2.user_preferences", args=["foo"], get=dict(a=1,b=2)))
   # Just GET parameters
-  assert_equal("/?a=1", reverse_with_get("desktop.views.index", get=dict(a="1")))
+  assert_equal("/?a=1", reverse_with_get("desktop_views.index", get=dict(a="1")))
   # No GET parameters
-  assert_equal("/", reverse_with_get("desktop.views.index", get=dict()))
+  assert_equal("/", reverse_with_get("desktop_views.index", get=dict()))
 
 def test_unicode_ok():
-  assert_equal("/?a=x%C3%A9", reverse_with_get("desktop.views.index", get=dict(a="x" + unichr(233))))
+  assert_equal("/?a=x%C3%A9", reverse_with_get("desktop_views.index", get=dict(a="x" + unichr(233))))

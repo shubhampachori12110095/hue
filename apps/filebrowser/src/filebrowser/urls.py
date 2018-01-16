@@ -33,10 +33,10 @@ urlpatterns = [
   url(r'^download=(?P<path>.*)$', filebrowser_views.download, name='download'),
   url(r'^status$', filebrowser_views.status, name='status'),
   url(r'^home_relative_view=(?P<path>.*)$', filebrowser_views.home_relative_view, name='home_relative_view'),
-  url(r'^edit=(?P<path>.*)$', filebrowser_views.edit, name='edit'),
+  url(r'^edit=(?P<path>.*)$', filebrowser_views.edit, name='filebrowser_views_edit'),
 
   # POST operations
-  url(r'^save$', filebrowser_views.save_file),
+  url(r'^save$', filebrowser_views.save_file, name="filebrowser_views_save_file"),
   url(r'^upload/file$', filebrowser_views.upload_file, name='upload_file'),
   url(r'^extract_archive', filebrowser_views.extract_archive_using_batch_job, name='extract_archive_using_batch_job'),
   url(r'^compress_files', filebrowser_views.compress_files_using_batch_job, name='compress_files_using_batch_job'),

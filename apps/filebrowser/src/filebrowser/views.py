@@ -324,7 +324,7 @@ def save_file(request):
     except Exception, e:
         raise PopupException(_("The file could not be saved"), detail=e)
 
-    request.path = reverse("filebrowser.views.edit", kwargs=dict(path=path))
+    request.path = reverse("filebrowser_views_edit", kwargs=dict(path=path))
     return edit(request, path, form)
 
 
@@ -1384,7 +1384,7 @@ def location_to_url(location, strict=True):
     path = location
     if split_path[0] == 'hdfs':
       path = split_path[2]
-    return reverse("views", kwargs=dict(path=path))
+    return reverse("filebrowser.views.view", kwargs=dict(path=path))
 
 
 def truncate(toTruncate, charsToKeep=50):
