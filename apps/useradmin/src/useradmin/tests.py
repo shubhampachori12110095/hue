@@ -717,7 +717,7 @@ class TestUserAdmin(BaseUserAdminTests):
 
 
     # c1 users should list only 'user_test_list_for_autocomplete2' and group should not list 'group_test_list_for_autocomplete_other_group'
-    response = c1.get(reverse('useradmin.views.list_for_autocomplete'))
+    response = c1.get(reverse('useradmin_views_list_for_autocomplete'))
     content = json.loads(response.content)
 
     users = [smart_unicode(user['username']) for user in content['users']]
@@ -728,7 +728,7 @@ class TestUserAdmin(BaseUserAdminTests):
     assert_false(u'group_test_list_for_autocomplete_other_group' in groups, groups)
 
     # only_mygroups has no effect if user is not super user
-    response = c1.get(reverse('useradmin.views.list_for_autocomplete'), {'include_myself': True})
+    response = c1.get(reverse('useradmin_views_list_for_autocomplete'), {'include_myself': True})
     content = json.loads(response.content)
 
     users = [smart_unicode(user['username']) for user in content['users']]
@@ -739,7 +739,7 @@ class TestUserAdmin(BaseUserAdminTests):
     assert_false(u'group_test_list_for_autocomplete_other_group' in groups, groups)
 
     # c3 is alone
-    response = c3_other_group.get(reverse('useradmin.views.list_for_autocomplete'), {'include_myself': True})
+    response = c3_other_group.get(reverse('useradmin_views_list_for_autocomplete'), {'include_myself': True})
     content = json.loads(response.content)
 
     users = [smart_unicode(user['username']) for user in content['users']]

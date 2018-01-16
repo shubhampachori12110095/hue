@@ -176,7 +176,7 @@ dynamic_patterns += [
 ]
 
 dynamic_patterns += [
-  url(r'^desktop/api/users/autocomplete', useradmin_views.list_for_autocomplete),
+  url(r'^desktop/api/users/autocomplete', useradmin_views.list_for_autocomplete, name='useradmin_views_list_for_autocomplete'),
   url(r'^desktop/api/users/?$', useradmin_views.get_users_by_id)
 ]
 
