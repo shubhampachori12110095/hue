@@ -1384,7 +1384,7 @@ def location_to_url(location, strict=True):
     path = location
     if split_path[0] == 'hdfs':
       path = split_path[2]
-    return reverse("filebrowser.views.view", kwargs=dict(path=path))
+    return reverse("views", kwargs=dict(path=path))
 
 
 def truncate(toTruncate, charsToKeep=50):
