@@ -36,7 +36,7 @@ urlpatterns = [
   url(r'^groups/edit/(?P<name>%s)$' % (groupname_re,), useradmin_views.edit_group, name="useradmin.views.edit_group"),
   url(r'^permissions/edit/(?P<app>.+?)/(?P<priv>.+?)/?$', useradmin_views.edit_permission),
   url(r'^users/new$', useradmin_views.edit_user, name="useradmin.views.edit_user"),
-  url(r'^groups/new$', useradmin_views.edit_group, name="useradmin.new_group", name="useradmin.views.edit_group"),
+  url(r'^groups/new$', useradmin_views.edit_group, name="useradmin.views.edit_group"),
   url(r'^users/delete', useradmin_views.delete_user),
   url(r'^groups/delete$', useradmin_views.delete_group),
 ]
