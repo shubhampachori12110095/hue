@@ -226,7 +226,8 @@ class ImpersonationBackend(django.contrib.auth.backends.ModelBackend):
     if not login_as:
       return
 
-    authenticated = super(ImpersonationBackend, self).authenticate(username, password)
+    request = None
+    authenticated = super(ImpersonationBackend, self).authenticate(request, username, password)
 
     if not authenticated:
       raise PermissionDenied()
