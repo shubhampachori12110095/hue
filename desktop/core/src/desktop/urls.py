@@ -82,7 +82,7 @@ else:
   ]
 
 dynamic_patterns += [
-  url(r'^logs$', desktop_views.log_view),
+  url(r'^logs$', desktop_views.log_view, name="desktop.views.log_view"),
   url(r'^desktop/log_analytics$', desktop_views.log_analytics),
   url(r'^desktop/log_js_error$', desktop_views.log_js_error),
   url(r'^desktop/dump_config$', desktop_views.dump_config, name="desktop.views.dump_config"),
