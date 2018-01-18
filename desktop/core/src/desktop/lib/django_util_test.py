@@ -68,9 +68,9 @@ class TestDjangoUtil(object):
     assert_equal('File Browser', django_util.get_app_nice_name('filebrowser'))
 
   def test_encode_json_model(self):
-    assert_equal('{"pk": null, "model": "TEST_APP.testmodel", "fields": {"last_modified": null, "my_str": "foo", "my_int": 3}}',
+    assert_equal('{"model": "TEST_APP.testmodel", "pk": null, "fields": {"my_int": 3, "my_str": "foo", "last_modified": null}}',
         django_util.encode_json(TestModel(my_int=3, my_str="foo")))
-    assert_equal('[{"pk": null, "model": "TEST_APP.testmodel", "fields": {"last_modified": null, "my_str": "foo", "my_int": 3}}]',
+    assert_equal('[{"model": "TEST_APP.testmodel", "pk": null, "fields": {"my_int": 3, "my_str": "foo", "last_modified": null}}]',
         django_util.encode_json([TestModel(my_int=3, my_str="foo")]))
   
   def test_timesince(self):
@@ -106,7 +106,9 @@ class TestDjangoUtil(object):
         return "foo"
     assert_equal('"foo"', django_util.encode_json(Foo()))
     assert_equal('["foo", "foo"]', django_util.encode_json([Foo(), Foo()]))
-    assert_equal('{"pk": null, "model": "TEST_APP.testmodel", "fields": {"last_modified": null, "my_str": "foo", "my_int": 3}}',
+    #assert_equal('{"pk": null, "model": "TEST_APP.testmodel", "fields": {"last_modified": null, "my_str": "foo", "my_int": 3}}',
+    #    django_util.encode_json(TestModel(my_int=3, my_str="foo")))
+    assert_equal('{"model": "TEST_APP.testmodel", "pk": null, "fields": {"my_int": 3, "my_str": "foo", "last_modified": null}}',
         django_util.encode_json(TestModel(my_int=3, my_str="foo")))
 
     class Bar(object):
