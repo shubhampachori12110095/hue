@@ -255,7 +255,10 @@
             }
           },
           _resizeMenu: function () {
-            this.menu.element.outerWidth(options.minWidth);
+            // This overrides the default behaviour of using dropdown width of the same size as input autocomplete box
+            if (options.limitWidthToInput) {
+              this.menu.element.outerWidth(options.minWidth);
+            }
           },
           _renderMenu: function (ul, items) {
             var self = this;

@@ -139,13 +139,15 @@ function source(request, callback) {
   var successCallback = function (data) {
     JSON_USERS_GROUPS = data;
     shareViewModel.items = [];
+    var regex = new RegExp('(' + request.term + ')', 'gi');
     $.each(JSON_USERS_GROUPS.users, function (i, user) {
       var label = prettifyUsername(user);
+      var highlightedlabel = label.replace(regex, "<strong>$1</strong>");
       shareViewModel.userMap[label] = user;
       shareViewModel.items.push({
         data: {
           "icon": "fa fa-user",
-          "label": label
+          "label": highlightedlabel
         },
         value: label
       });
@@ -153,10 +155,11 @@ function source(request, callback) {
     });
     $.each(JSON_USERS_GROUPS.groups, function (i, group) {
       shareViewModel.groupMap[group.name] = group;
+      var highlightedlabel = group.name.replace(regex, "<strong>$1</strong>");
       shareViewModel.items.push({
         data: {
           "icon": "fa fa-users",
-          "label": group.name
+          "label": highlightedlabel
         },
         value: group.name
       });
