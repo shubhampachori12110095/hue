@@ -382,6 +382,9 @@ ${ assist.assistPanel() }
               <td data-bind="truncatedText: $data"></td>
             </tr>
             </tbody>
+            <!-- ko if: createWizard.source.inputFormat() == 'query' -->
+              ${ _('Execute query to add sample data') }
+            <!-- /ko -->
           </table>
         </div>
       </div>
@@ -1429,6 +1432,11 @@ ${ assist.assistPanel() }
 
       // Queries
       self.query = ko.observable('');
+      self.query.subscribe(function(newValue) {
+        if (newValue) {
+          wizard.guessFormat();
+        }
+      });
       self.draggedQuery = ko.observable();
 
       self.format = ko.observable();
